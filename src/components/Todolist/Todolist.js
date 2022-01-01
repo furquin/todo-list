@@ -1,15 +1,24 @@
-import React, { Component } from 'react'
-import './style.css';
+import React, { Component } from "react";
+import "./style.css";
 
 export default class Todolist extends Component {
     render() {
+        const { isChecked, handleClickChecked, item } = this.props;
+        
+        
+
         return (
-            <div>
+            <div className="input-list">
                 <input 
-                type="text"
-                placeholder=''
-                 />
+                type="checkbox"
+                name='input-list'
+                /> 
+                
+                <label>
+                    {item}
+                </label>
+            
             </div>
-        )
+        );
     }
 }
