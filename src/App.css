@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+body{
+    background-color: #17181f;
+    color: #797A81;
+    min-height: 100vh;
+}
+
+.todo-area{
+    margin: auto;
+    max-width: 980px;
+    padding: 10px;
+}
+
