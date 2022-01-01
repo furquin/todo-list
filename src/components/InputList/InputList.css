@@ -1,0 +1,12 @@
+.input-list{
+    display:flex;
+    flex-direction: row;
+    background-color: #20212c;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    min-width: 80vh;
+    margin:10px auto;
+    color: #fff
+    
+}

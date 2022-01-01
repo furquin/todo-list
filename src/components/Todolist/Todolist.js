@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./style.css";
+import "./Todolist.css";
 
 export default class Todolist extends Component {
     render() {
@@ -8,13 +8,13 @@ export default class Todolist extends Component {
         
 
         return (
-            <div className="input-list">
-                <input 
+            <div className="todolist">
+                <input className='input-todolist'
                 type="checkbox"
-                name='input-list'
+                name='todolist'
                 /> 
                 
-                <label>
+                <label className="label-todolist">
                     {item}
                 </label>
             
