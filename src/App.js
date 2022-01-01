@@ -1,24 +1,40 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import './App.css';
 import Header from './components/Header/Header'
 import Todolist from './components/Todolist/Todolist';
 
 
+
 export default class App extends Component {
 
   
+  
   render() {
+
+    const list = [1,2,3]
+    
+
     return (
-      <>
-      <body >
-        <main className='todo-area'>
-        
-          <Header />
-          <Todolist />
-      </main>
-    </body> 
-      </>
+      
+       <div>
+            <main className='todo-area'>
+            
+            <Header />
+
+            {list.map((item, index) => 
+                <Todolist 
+                item={item}
+                key={index}
+                /> 
+                
+                )}
+            
+
+            
+            
+            </main>
+        </div>
+    
     )
   }
 }
