@@ -8,25 +8,58 @@ import InputList from'./components/InputList/InputList'
 
 export default class App extends Component {
 
+    constructor () {
+        super();
+
+        this.state = {
+            inputText:'',
+            todoList:[]
+        }
+    }
+
+    inputTodoList = ({target: {value}}) => {
+        this.setState({inputText: value })
+
+    }
+
+    onClick = (taskName) => {
+        const inputText = this.state.inputText
+            if(inputText !== '') {
+
+                let newList = this.state.todoList
+                newList.push(this.state.inputText)
+                this.setState({todoList: newList})
+                this.setState({inputText:''})
+
+            }
+
+    }
   
   
   render() {
-
-    const list = [1,2,3]
+    const { inputText, todoList } = this.state
+    const {onClick, inputTodoList} = this
     
 
     return (
       
+        
        <div>
             <main className='todo-area'>
             
-            <Header />
+            <Header 
+            />
 
-            <InputList />
+            <InputList 
+            inputText={inputText}
+            inputTodoList={inputTodoList}
+            onClick={onClick}
+            
+            />
 
-            {list.map((item, index) => 
+            {todoList.map((item, index) => 
                 <Todolist 
-                item={item}
+                item={item} 
                 key={index}
                 /> 
                 
