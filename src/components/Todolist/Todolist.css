@@ -17,3 +17,7 @@
 .label-todolist{
     color: #ccc;
 }
+
+.completa{
+   text-decoration: line-through;
+}

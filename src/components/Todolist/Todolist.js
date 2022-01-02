@@ -3,7 +3,7 @@ import "./Todolist.css";
 
 export default class Todolist extends Component {
     render() {
-        const { isChecked, handleClickChecked, item } = this.props;
+        const { item, index, handleClickChecked, isChecked, complete } = this.props;
         
         
 
@@ -12,10 +12,17 @@ export default class Todolist extends Component {
                 <input className='input-todolist'
                 type="checkbox"
                 name='todolist'
+                isChecked={isChecked}
+                onClick={handleClickChecked}
+
+                
                 /> 
                 
-                <label className="label-todolist">
-                    {item}
+                <label 
+                className="label-todolist"
+                className={complete}
+                >
+                    {`${index + 1 }.  ${item}`}
                 </label>
             
             </div>
