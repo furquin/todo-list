@@ -13,7 +13,7 @@ export default class App extends Component {
 
         this.state = {
             inputText:'',
-            todoList:["func editar", "func excluir", "adc categoria"],
+            todoList:["adc categoria"],
             
         }
     }
@@ -24,15 +24,16 @@ export default class App extends Component {
     }
 
     onClick = () => {
-        const { inputText } = this.state
+        const { inputText, todoList} = this.state
             if(inputText !== '') {
 
-                let newList = this.state.todoList
-                newList.push(this.state.inputText)
+                let newList = todoList
+                newList.push(inputText)
                 this.setState({todoList: newList})
                 this.setState({inputText:''})
 
             }
+        
 
     }
 
@@ -45,10 +46,6 @@ export default class App extends Component {
            this.setState({todoList: newList})
        
     }
-
-  
-
-    
 
     
   
@@ -80,6 +77,7 @@ export default class App extends Component {
                 index={index}
                 key={index}
                 exclui={() => exclui(item)}
+                
                 /> 
                 
                 )}
