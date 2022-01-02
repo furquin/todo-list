@@ -13,7 +13,9 @@ export default class App extends Component {
 
         this.state = {
             inputText:'',
-            todoList:[]
+            todoList:[1,2,3],
+            isChecked: false,
+            complete: ''
         }
     }
 
@@ -23,7 +25,7 @@ export default class App extends Component {
     }
 
     onClick = (taskName) => {
-        const inputText = this.state.inputText
+        const { inputText } = this.state
             if(inputText !== '') {
 
                 let newList = this.state.todoList
@@ -34,10 +36,21 @@ export default class App extends Component {
             }
 
     }
+
+    handleClickChecked = () => {
+       const { isChecked } = this.state
+            if(isChecked !== true) {
+                this.setState({isChecked: true, complete: 'completa'})
+
+            }if(isChecked !== false ) {
+                this.setState({isChecked: false, complete: ''})
+            }
+
+     }
   
   
   render() {
-    const { inputText, todoList } = this.state
+    const { inputText, todoList, isChecked, complete } = this.state
     const {onClick, inputTodoList} = this
     
 
@@ -59,8 +72,12 @@ export default class App extends Component {
 
             {todoList.map((item, index) => 
                 <Todolist 
-                item={item} 
+                item={item}
+                index={index}
+                handleClickChecked={this.handleClickChecked}
                 key={index}
+                isChecked={isChecked}
+                complete={complete}
                 /> 
                 
                 )}
