@@ -13,7 +13,7 @@ export default class App extends Component {
 
         this.state = {
             inputText:'',
-            todoList:[],
+            todoList:["func editar", "func excluir", "adc categoria"],
             
         }
     }
@@ -23,7 +23,7 @@ export default class App extends Component {
 
     }
 
-    onClick = (taskName) => {
+    onClick = () => {
         const { inputText } = this.state
             if(inputText !== '') {
 
@@ -36,16 +36,26 @@ export default class App extends Component {
 
     }
 
-    onEnter = () => {
-        
+    exclui = (item) => {
+
+        const { todoList } = this.state
+       
+           let newList = this.state.todoList
+           newList.splice(newList.indexOf(item), 1)
+           this.setState({todoList: newList})
+       
     }
+
+  
+
+    
 
     
   
   
   render() {
-    const { inputText, todoList, isChecked, complete } = this.state
-    const {onClick, inputTodoList} = this
+    const { inputText, todoList } = this.state
+    const {onClick, inputTodoList, exclui} = this
     
 
     return (
@@ -68,10 +78,8 @@ export default class App extends Component {
                 <Todolist 
                 item={item}
                 index={index}
-                handleClickChecked={this.handleClickChecked}
                 key={index}
-                isChecked={isChecked}
-                complete={complete}
+                exclui={() => exclui(item)}
                 /> 
                 
                 )}

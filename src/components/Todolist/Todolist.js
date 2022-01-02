@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Todolist.css";
+import PropsTypes from 'prop-types';
 
 export default class Todolist extends Component {
 
@@ -24,7 +25,7 @@ export default class Todolist extends Component {
       }
 
     render() {
-        const { item, index } = this.props;
+        const { item, index, exclui } = this.props;
         const {  isChecked, complete } = this.state
         const { handleClickChecked } = this 
         
@@ -35,20 +36,36 @@ export default class Todolist extends Component {
                 <input className='input-todolist'
                 type="checkbox"
                 name='todolist'
-                onClick={handleClickChecked}
+                onChange={handleClickChecked}
                 checked={isChecked} 
 
                 
                 /> 
                 
                 <label 
+                htmlFor='todolist'
                 className="label-todolist"
                 className={complete}
                 >
                     {`${index + 1 }.  ${item}`}
                 </label>
+
+                <div 
+                type="image"
+                className="delete"
+                onClick={exclui}
+                > 🗑️ </div>
             
             </div>
         );
     }
+
+    
 }
+
+Todolist.propTypes = {
+    item: PropsTypes.string.isRequired,
+    index: PropsTypes.number.isRequired,
+    exclui: PropsTypes.func.isRequired,
+  };
+
