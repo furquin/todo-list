@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './InputList.css';
+import PropsTypes from 'prop-types';
 
 
 export default class InputList extends Component {
@@ -26,3 +27,9 @@ export default class InputList extends Component {
         )
     }
 }
+
+InputList.propTypes = {
+    inputText: PropsTypes.string.isRequired,
+    inputTodoList: PropsTypes.func.isRequired,
+  };
+
