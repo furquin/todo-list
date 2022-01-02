@@ -5,19 +5,25 @@
     border-radius: 10px;
     margin-bottom: 10px;
     align-items: center;
+    justify-content:space-between;
 }
 
 .input-todolist{
     width:25px;
     height:25px;
     margin-right:5px;
+    display:flex;
     
 }
 
 .label-todolist{
     color: #ccc;
+    
 }
 
 .completa{
    text-decoration: line-through;
+   color: rgb(37, 173, 24)
 }
+
+
