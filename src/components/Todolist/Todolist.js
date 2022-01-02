@@ -2,8 +2,31 @@ import React, { Component } from "react";
 import "./Todolist.css";
 
 export default class Todolist extends Component {
+
+    constructor () {
+        super();
+
+        this.state = {
+            isChecked: false,
+            complete: ''
+        }
+    }
+
+    handleClickChecked = () => {
+        const { isChecked } = this.state
+             if(isChecked !== true) {
+                 this.setState({isChecked: true, complete: 'completa'})
+ 
+             }if(isChecked !== false ) {
+                 this.setState({isChecked: false, complete: ''})
+             }
+ 
+      }
+
     render() {
-        const { item, index, handleClickChecked, isChecked, complete } = this.props;
+        const { item, index } = this.props;
+        const {  isChecked, complete } = this.state
+        const { handleClickChecked } = this 
         
         
 
@@ -12,8 +35,8 @@ export default class Todolist extends Component {
                 <input className='input-todolist'
                 type="checkbox"
                 name='todolist'
-                isChecked={isChecked}
                 onClick={handleClickChecked}
+                checked={isChecked} 
 
                 
                 /> 

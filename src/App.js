@@ -13,9 +13,8 @@ export default class App extends Component {
 
         this.state = {
             inputText:'',
-            todoList:[1,2,3],
-            isChecked: false,
-            complete: ''
+            todoList:[],
+            
         }
     }
 
@@ -37,16 +36,11 @@ export default class App extends Component {
 
     }
 
-    handleClickChecked = () => {
-       const { isChecked } = this.state
-            if(isChecked !== true) {
-                this.setState({isChecked: true, complete: 'completa'})
+    onEnter = () => {
+        
+    }
 
-            }if(isChecked !== false ) {
-                this.setState({isChecked: false, complete: ''})
-            }
-
-     }
+    
   
   
   render() {
